@@ -1,8 +1,13 @@
 
 class Farm
+  @@total_food = []
+
   def self.display_status
-    amount = 0
-    puts "The farm has #{amount} harvested food so far."
+    total = 0
+    @@total_food.each do |amount|
+      total += amount
+    end
+    puts "The farm has #{total} harvested food so far."
   end
 end
 
