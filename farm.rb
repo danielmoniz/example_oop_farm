@@ -18,13 +18,17 @@ class Farm
     field_size = gets.to_i
     puts "Added a #{field_type} field of #{field_size} hectares!"
 
-    field = Field.new
+    field = Field.new(field_type, field_size)
     @@fields << field
   end
 end
 
 class Field
-
+  attr_accessor :type, :size
+  def initialize(type, size)
+    @type = type
+    @size = size
+  end
 end
 
 class Wheat < Field
@@ -62,10 +66,14 @@ end
 farm = Farm.new
 # puts farm.inspect
 
-farm.new_field
 
-field = Field.new
-# puts field.inspect
+field = Field.new("cool field", 300)
+puts field.inspect
+puts field.type
+puts field.size
+
+
+farm.new_field
 
 wheat_field = Wheat.new
 # puts wheat_field.inspect
